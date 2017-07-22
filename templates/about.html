@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block extra_head %}{% endblock %}
+
+{% block title %} | About{% endblock %}
+
+{% block content_title %}{{ config.YOUR_NAME }}{% endblock %}
+
+{% block content %}
+
+  <!-- Change this to edit your about page -->
+  <div>
+    <p>
+      Hello World!
+    </p>
+    <p>
+      This is my blog.
+    </p>
+  </div>
+
+  <div>
+    {% if config.GITHUB_LINK %}
+      <a href="{{ config.GITHUB_LINK }}" class="btn btn-default">GitHub</a>
+    {% endif %}
+    {% if config.LINKEDIN_LINK %}
+      <a href="{{ config.LINKEDIN_LINK }}" class="btn btn-default">LinkedIn</a>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content_title %}
+  <!-- Change this if you want a custom homepage header -->
+  Blog
+{% endblock %}
+
+{% block content %}
+  {% for entry in object_list %}
+    <h3>
+      <a href="{% if entry.published %}{{ url_for('detail', slug=entry.slug) }}{% else %}{{ url_for('edit', slug=entry.slug) }}{% endif %}">
+        {{ entry.title }}
+      </a>
+    </h3>
+    <p>Posted on {{ entry.timestamp.strftime('%B %-d, %Y') }}</p>
+  {% else %}
+    <p>No entries have been created yet.</p>
+  {% endfor %}
+  {% include "includes/pagination.html" %}
+{% endblock %}
